@@ -18,10 +18,14 @@ This repo has Terraform plans to deploy a multi-master Kubernetes Cluster on Bar
 2. Verify your e-mail address and login
 3. Record the Following:
 ![Platform9 Variables](docs/images/pf9_variables.png)
-    A.  Platform9 Account Domain
-    B.  Platform9 Region (if different from pictured)
-    C.  Platorm9 Tenant (if different from pictured)
+    A. Platform9 Account Domain
+    
+    B. Platform9 Region (if different from pictured)
+    
+    C. Platorm9 Tenant (if different from pictured)
+    
     D. Platform9 Username (e-mail address)
+    
     E. Platform9 Password
 ### Install Terraform 
 [Terraform](http://terraform.io) is just a single binary.  Visit their [download page](https://www.terraform.io/downloads.html), choose your operating system, make the binary executable, and move it into your path. 
