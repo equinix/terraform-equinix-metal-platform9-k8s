@@ -1,5 +1,5 @@
 # Platform9 Managed Kubernetes on Packet Baremetal
-[![Platform9 Variables](docs/images/pmkft_thumbnail.png)](https://drive.google.com/file/d/1qGSSWqIxOLRodfkobgHz0e2su8f1ikoY/view){:target="_blank" rel="noopener"}
+[![Platform9 Variables](docs/images/pmkft_thumbnail.png)](https://drive.google.com/file/d/1qGSSWqIxOLRodfkobgHz0e2su8f1ikoY/view)
 
 This repo has Terraform plans to deploy a multi-master Kubernetes Cluster on Baremetal utilizing [Platform9 Manged Kubernetes vSphere](https://platform9.com/managed-kubernetes/) and [Packet](https://packet.com). This deployment usually takes about 15 minutes to complete, and you'll have a Manged Kubernetes cluster ready to deploy workloads.
 
