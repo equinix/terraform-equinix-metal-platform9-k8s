@@ -60,7 +60,7 @@ platform9_user="user@example.com"
 platform9_password="$tr0ngP@$$w0rd!"
 EOF 
 ``` 
-There is a whole slew of other variables to check out in the `variables.tf` file. These are set to fairly sane defaults. But if you'd like to use a different server type, change the number of servers, or change the location of these servers, you can override these settings just by adding those `key=value` pairs to the file above. 
+There's a whole slew of other variables to check out in the `variables.tf` file. These are set to fairly sane defaults. But if you'd like to use a different server type, change the number of servers, or change the location of these servers, you can override these settings just by adding those `key=value` pairs to the file above. 
 ### Deploy the PMK Cluster on Packet! 
  
 All there is left to do now is to deploy the cluster: 
