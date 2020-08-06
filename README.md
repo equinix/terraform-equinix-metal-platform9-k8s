@@ -1,7 +1,7 @@
 # Platform9 Managed Kubernetes on Packet Baremetal
 [![Platform9 Variables](docs/images/pmkft_thumbnail.png)](https://drive.google.com/file/d/1qGSSWqIxOLRodfkobgHz0e2su8f1ikoY/view)
 
-This repo has Terraform plans to deploy a multi-master Kubernetes Cluster on Baremetal utilizing [Platform9 Manged Kubernetes vSphere](https://platform9.com/managed-kubernetes/) and [Packet](https://packet.com). This deployment usually takes about 15 minutes to complete, and you'll have a Manged Kubernetes cluster ready to deploy workloads.
+This repo has Terraform plans to deploy a multi-master Kubernetes Cluster on Baremetal utilizing [Platform9 Managed Kubernetes](https://platform9.com/managed-kubernetes/) and [Packet](https://packet.com). This deployment usually takes about 15 minutes to complete, and you'll have a Managed Kubernetes cluster ready to deploy workloads.
 
 ## Instructions
 ### Create your Packet account
@@ -60,7 +60,7 @@ platform9_user="user@example.com"
 platform9_password="$tr0ngP@$$w0rd!"
 EOF 
 ``` 
-There are a whole slew of other variables to checkout in the `variables.tf` file. These are set to fairly sane defaults. But if you'd like to use a different server type, change the number of servers, or change the location of these servers, you can override these settings just by adding those `key=value` pairs to the file file above. 
+There is a whole slew of other variables to check out in the `variables.tf` file. These are set to fairly sane defaults. But if you'd like to use a different server type, change the number of servers, or change the location of these servers, you can override these settings just by adding those `key=value` pairs to the file above. 
 ### Deploy the PMK Cluster on Packet! 
  
 All there is left to do now is to deploy the cluster: 
@@ -83,4 +83,3 @@ Worker_IPs = [
   "136.144.51.131",
 ]
 ``` 
-
