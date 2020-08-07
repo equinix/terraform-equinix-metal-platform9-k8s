@@ -102,4 +102,4 @@ If you need help with Platform9 you can join their [Community Slack](https://sla
 
 If you need help with Packet you can join their [Community Slack](https://slack.packet.com/)!
 ### Known issues
-Since Platform9 doesn't have a Terraform Provider to Create and Destroy clusters, I had to write this as an "External Datasource
+Since Platform9 doesn't have a Terraform Provider to Create and Destroy clusters, I had to write this as an [External Data Source](https://registry.terraform.io/providers/hashicorp/external/latest/docs/data-sources/data_source). I have written the logic to delete he cluster, but havne't written the logic do delete all of the nodes. 
