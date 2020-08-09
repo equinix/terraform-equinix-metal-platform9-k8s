@@ -54,7 +54,7 @@ sudo mv terraform /usr/local/bin/
 To download this project and get in the directory, run the following commands:
 
 ```bash
-git clone https://github.com/c0dyhi11/pmkft-on-packet.git
+git clone https://github.com/packet-labs/platform9-k8s.git
 cd pmkft-on-packet
 ```
 
