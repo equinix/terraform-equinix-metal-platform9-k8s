@@ -20,9 +20,9 @@ This repo has [Terraform](http://terraform.io) plans to deploy a multi-master Ku
 6. Locate and Record your [Packet Organization ID](https://app.packet.net/) for future use
     * Located under the **Settings** section of the **Top Right Drop Down Menu**
 
-### Sign up for the Platform9 Managed Kubernetes Free Tier
+### Sign up for the Platform9 Managed Kubernetes (PMK) Free Tier
 
-1. Sign up for a [Platform9 Free Account](https://platform9.com/signup/)
+1. Sign up for a [Platform9 PMK Free Account](https://platform9.com/signup/)
 2. Verify your e-mail address and login
 3. Record the Following:
 ![Platform9 Variables](docs/images/pf9_variables.png)
@@ -76,11 +76,11 @@ platform9_password="$tr0ngP@$$w0rd!"
 EOF
 ```
 
-There's a whole slew of other variables to check out in the `variables.tf` file. These are set to fairly sane defaults. But if you'd like to use a different server type, change the number of servers, or change the location of these servers, you can override these settings just by adding those `key=value` pairs to the file above.
+There's a whole slew of other variables to check out in the `variables.tf` file. These are set to fairly sane defaults. But if you'd like to use a different packet server type, change the number or location of the packet servers, or change the Platform9 PMK cluster configuration, you can override these settings just by adding those `key=value` pairs to the file above.
 
 ### Deploy the PMK Cluster on Packet
 
-All there is left to do now is to deploy the cluster:
+All there is left to do now is to deploy the cluster. Using the default configuration in `variables.tf`, this will create a **single node cluster using a packet <a href=”https://www.packet.com/cloud/servers/c3-small/” rel="noopener" target="_blank">c3.small.x86</a> node that's configured with Ubuntu 18.4 Operating System**. 
 
 ```bash
 terraform apply --auto-approve
@@ -120,7 +120,7 @@ This should end with output similar to this:
 Destroy complete! Resources: 17 destroyed.
 ```
 
-**NOTE:** The one thing that I haven't written yet is the cleanup of the Nodes in Platform9. They will show up under the ***Nodes*** section as disconnected until you delete them manually.
+**NOTE:** This will not cleanup the cluster nodes in Platform9 PMK. They will show up under the ***Nodes*** section in the PMK UI (Infrastructure -> Nodes) as disconnected until you delete them manually.
 
 ## Troubleshooting or Help
 
