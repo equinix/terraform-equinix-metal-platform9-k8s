@@ -4,7 +4,7 @@
 
 [![Platform9 Variables](docs/images/pmkft_thumbnail.png)](https://drive.google.com/file/d/1qGSSWqIxOLRodfkobgHz0e2su8f1ikoY/view)
 
-This repo has [Terraform](http://terraform.io) plans to deploy a multi-master Kubernetes Cluster on Baremetal utilizing [Platform9 Managed Kubernetes](https://platform9.com/managed-kubernetes/) and [Packet (an Equinix Company)](https://packet.com). This deployment usually takes about 15 minutes to complete, and you'll have a Managed Kubernetes cluster ready to deploy workloads. Checkout the three and a half minute video above of this deployment!
+This repo has [Terraform](http://terraform.io) plans to deploy a single-master Kubernetes Cluster on Baremetal utilizing [Platform9 Managed Kubernetes](https://platform9.com/managed-kubernetes/) and [Packet (an Equinix Company)](https://packet.com). This deployment usually takes about 15 minutes to complete, and you'll have a Managed Kubernetes cluster ready to deploy workloads. Checkout the three and a half minute video above of this deployment!
 
 ## Instructions
 
@@ -13,8 +13,8 @@ This repo has [Terraform](http://terraform.io) plans to deploy a multi-master Ku
 1. Sign up for a [Packet Public Cloud account](https://app.packet.net/signup)
 2. Verify your e-mail address and login
 3. Follow the wizard [Getting Started with Packet](https://app.packet.net/getting-started/overview) at  that guides you through creating a project.
-    * You will need to put a Credit Card or PayPal on file, but use Promo Code ***BAREMETAL50*** for $50 in free credits
-    * This four node stack will cost around $4.00 per hour.
+    * You will need to put a Credit Card or PayPal on file, but use Promo Code ***PMKFT - $100*** for $50 in free credits
+    * This node will cost around $0.71 per hour.
 4. [Upload an SSH key](https://www.packet.com/developers/docs/servers/key-features/ssh-keys/) to your Packet account.
 5. Generate and Record a [Packet API Key](https://www.packet.com/developers/docs/API/) for future use
 6. Locate and Record your [Packet Organization ID](https://app.packet.net/) for future use
@@ -76,7 +76,7 @@ platform9_password="$tr0ngP@$$w0rd!"
 EOF
 ```
 
-There's a whole slew of other variables to check out in the `variables.tf` file. These are set to fairly sane defaults. But if you'd like to use a different packet server type, change the number or location of the packet servers, or change the Platform9 PMK cluster configuration, you can override these settings just by adding those `key=value` pairs to the file above.
+There's a whole slew of other variables to check out in the `variables.tf` file. These are set to fairly sane defaults. But if you'd like to use a different packet server type, change the number or location of the packet servers, or change the Platform9 PMK cluster configuration, you can override these settings just by adding those `key=value` pairs to the file above. As an example the video above we show a multi-master deployment; you can change the variables.tf file if you want this deployment. 
 
 ### Deploy the PMK Cluster on Packet
 
