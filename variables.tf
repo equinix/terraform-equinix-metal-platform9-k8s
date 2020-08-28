@@ -88,3 +88,7 @@ variable "is_spot_instance" {
   default = false
 }
 
+variable "allow_workloads_on_master" {
+  default = false
+}
+

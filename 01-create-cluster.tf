@@ -14,6 +14,7 @@ data "external" "create_cluster" {
     region       = var.platform9_region
     cluster_name = var.cluster_name
     k8s_api_fqdn = packet_reserved_ip_block.cluster_ip.address
+    allow_workloads_on_master = var.allow_workloads_on_master
   }
 }
 
