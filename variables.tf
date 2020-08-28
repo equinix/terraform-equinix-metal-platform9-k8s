@@ -28,7 +28,7 @@ variable "worker_size" {
 }
 
 variable "facility" {
-  default = "ny5"
+  default = "sv15"
 }
 
 variable "operating_system" {
@@ -40,7 +40,7 @@ variable "billing_cycle" {
 }
 
 variable "master_count" {
-  default = 3
+  default = 1
 }
 
 variable "worker_count" {
