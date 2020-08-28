@@ -32,8 +32,8 @@ def validate_cluster(cluster_data, auth, cluster_name, k8s_api_fqdn):
     return True
 
 
-def create_cluster(auth, cluster_name, k8s_api_fqdn, privileged_mode_enabled=True,
-                   app_catalog_enabled=False, runtime_config='', allow_workloads_on_master=False,
+def create_cluster(auth, cluster_name, k8s_api_fqdn, allow_workloads_on_master=False,
+                   privileged_mode_enabled=True, app_catalog_enabled=False, runtime_config='',
                    networkPlugin='flannel', container_cidr='172.30.0.0/16', services_cidr='172.31.0.0/16',
                    mtuSize=1440, debug_flag=True):
     
@@ -59,7 +59,7 @@ def pf9_auth(endpoint, user, pw, tenant, region):
 
 def main():
     """ Here is an example of how to call this script manually:
-        printf '{"du_fqdn": "pmkft-1596142484-9999.platform9.io","user": "user@example.com","pw": "$tr0ngP@$$","tenant": "service","region": "RegionOne","cluster_name": "my_test_cluster","k8s_api_fqdn": "1.2.3.4"}' | python3 create_cluster.py
+        printf '{"du_fqdn": "pmkft-1596142484-9999.platform9.io","user": "user@example.com","pw": "$tr0ngP@$$","tenant": "service","region": "RegionOne","cluster_name": "my_test_cluster","k8s_api_fqdn": "1.2.3.4", "privileged_mode_enabled": true}' | python3 create_cluster.py
     """
     json_file_name = ".pf9_cluster.json"
     lines = read_in()
@@ -72,7 +72,7 @@ def main():
     if valid_cluster:
         sys.stdout.write(json.dumps(cluster_data))
     else:
-        output = create_cluster(auth, options['cluster_name'], options['k8s_api_fqdn'])
+        output = create_cluster(auth, options['cluster_name'], options['k8s_api_fqdn'], options['allow_workloads_on_master'])
         with open(json_file_name, 'w') as outfile:
             json.dump(output, outfile)
         sys.stdout.write(json.dumps(output))
@@ -80,4 +80,4 @@ def main():
 
 if __name__ == "__main__":
     main()
-	
+
