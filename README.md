@@ -14,7 +14,7 @@ This repo has [Terraform](http://terraform.io) plans to deploy a single-master K
 2. Verify your e-mail address and login
 3. Follow the wizard [Getting Started with Packet](https://app.packet.net/getting-started/overview) at  that guides you through creating a project.
     * You will need to put a Credit Card or PayPal on file, but use Promo Code ***PMKFT*** for $100 in free credits
-    * This deployment will cost around $0.35 per hour.
+    * This deployment will cost around $0.50 per hour.
 4. [Upload an SSH key](https://www.packet.com/developers/docs/servers/key-features/ssh-keys/) to your Packet account.
 5. Generate and Record a [Packet API Key](https://www.packet.com/developers/docs/API/) for future use
 6. Locate and Record your [Packet Organization ID](https://app.packet.net/) for future use
