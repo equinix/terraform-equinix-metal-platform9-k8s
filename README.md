@@ -13,8 +13,8 @@ This repo has [Terraform](http://terraform.io) plans to deploy a single-master K
 1. Sign up for a [Packet Public Cloud account](https://app.packet.net/signup)
 2. Verify your e-mail address and login
 3. Follow the wizard [Getting Started with Packet](https://app.packet.net/getting-started/overview) at  that guides you through creating a project.
-    * You will need to put a Credit Card or PayPal on file, but use Promo Code ***PMKFT - $100*** for $50 in free credits
-    * This node will cost around $0.71 per hour.
+    * You will need to put a Credit Card or PayPal on file, but use Promo Code ***PMKFT*** for $100 in free credits
+    * This deployment will cost around $0.35 per hour.
 4. [Upload an SSH key](https://www.packet.com/developers/docs/servers/key-features/ssh-keys/) to your Packet account.
 5. Generate and Record a [Packet API Key](https://www.packet.com/developers/docs/API/) for future use
 6. Locate and Record your [Packet Organization ID](https://app.packet.net/) for future use
@@ -80,7 +80,7 @@ There's a whole slew of other variables to check out in the `variables.tf` file.
 
 ### Deploy the PMK Cluster on Packet
 
-All there is left to do now is to deploy the cluster. Using the default configuration in `variables.tf`, this will create a **single node cluster using a packet <a href=”https://www.packet.com/cloud/servers/c3-small/” rel="noopener" target="_blank">c3.small.x86</a> node that's configured with Ubuntu 18.4 Operating System**. 
+All there is left to do now is to deploy the cluster. Using the default configuration in `variables.tf`, this will create a **single node cluster using a packet <a href=”https://www.packet.com/cloud/servers/c3-small/” rel="noopener" target="_blank">c3.small.x86</a> node that's configured with Ubuntu 18.04 Operating System**. 
 
 ```bash
 terraform apply --auto-approve
