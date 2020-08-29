@@ -66,6 +66,10 @@ def main():
     for line in lines:
         if line:
             options = json.loads(line)
+    if options['allow_workloads_on_master'] == "true" or options['allow_workloads_on_master'] == "True":
+        options['allow_workloads_on_master'] = True
+    elif options['allow_workloads_on_master'] == "false" or options['allow_workloads_on_master'] == "False":
+        options['allow_workloads_on_master'] = False
     cluster_data = load_cluster_data(json_file_name)
     auth = pf9_auth(options['du_fqdn'], options['user'], options['pw'], options['tenant'], options['region'])
     valid_cluster = validate_cluster(cluster_data, auth, options['cluster_name'], options['k8s_api_fqdn'])

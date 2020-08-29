@@ -44,7 +44,7 @@ variable "master_count" {
 }
 
 variable "worker_count" {
-  default = 1
+  default = 0
 }
 
 ###############################
@@ -89,6 +89,6 @@ variable "is_spot_instance" {
 }
 
 variable "allow_workloads_on_master" {
-  default = false
+  default = true
 }
 
