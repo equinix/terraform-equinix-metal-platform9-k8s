@@ -80,7 +80,7 @@ There's a whole slew of other variables to check out in the `variables.tf` file.
 
 ### Deploy the PMK Cluster on Packet
 
-All there is left to do now is to deploy the cluster. Using the default configuration in `variables.tf`, this will create a **single node cluster using a packet <a href=”https://www.packet.com/cloud/servers/c3-small/” rel="noopener" target="_blank">c3.small.x86</a> node that's configured with Ubuntu 18.04 Operating System**. 
+All there is left to do now is to deploy the cluster. Using the default configuration in `variables.tf`, this will create a **single node cluster using a packet [https://www.packet.com/cloud/servers/c3-small/](c3.small.x86) node that's configured with Ubuntu 18.04 Operating System**. 
 
 ```bash
 terraform apply --auto-approve
