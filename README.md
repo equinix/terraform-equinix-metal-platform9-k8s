@@ -129,5 +129,6 @@ If you need help with Platform9 you can join their [Community Slack](https://sla
 If you need help with Packet you can join their [Community Slack](https://slack.packet.com/)!
 
 ### Known issues
+You will get an x509 certificate error due to an invalid certificates. This is because Platform9 normally used DNS names rather than an IP address for the Kubernetes API Endpoint. To work around this you'll need to run kubectl as follows: `kubectl --insecure-skip-tls-verify` this will ignore the certificate error. Platform9 is working on adding the Elastic IP to the certificate to avoid this error in the future.
 
 Since Platform9 doesn't have a Terraform Provider to Create and Destroy clusters, I had to write this as an [External Data Source](https://registry.terraform.io/providers/hashicorp/external/latest/docs/data-sources/data_source). I have written the logic to delete the cluster, but haven't written the logic to delete all of the nodes.
