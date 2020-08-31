@@ -4,7 +4,7 @@
 
 [![Platform9 Variables](docs/images/pmkft_thumbnail.png)](https://drive.google.com/file/d/1qGSSWqIxOLRodfkobgHz0e2su8f1ikoY/view)
 
-This repo has [Terraform](http://terraform.io) plans to deploy a multi-master Kubernetes Cluster on Baremetal utilizing [Platform9 Managed Kubernetes](https://platform9.com/managed-kubernetes/) and [Packet (an Equinix Company)](https://packet.com). This deployment usually takes about 15 minutes to complete, and you'll have a Managed Kubernetes cluster ready to deploy workloads. Checkout the three and a half minute video above of this deployment!
+This repo has [Terraform](http://terraform.io) plans to deploy a single-master Kubernetes Cluster on Baremetal utilizing [Platform9 Managed Kubernetes](https://platform9.com/managed-kubernetes/) and [Packet (an Equinix Company)](https://packet.com). This deployment usually takes about 15 minutes to complete, and you'll have a Managed Kubernetes cluster ready to deploy workloads. Checkout the three and a half minute video above of this deployment!
 
 ## Instructions
 
@@ -13,16 +13,16 @@ This repo has [Terraform](http://terraform.io) plans to deploy a multi-master Ku
 1. Sign up for a [Packet Public Cloud account](https://app.packet.net/signup)
 2. Verify your e-mail address and login
 3. Follow the wizard [Getting Started with Packet](https://app.packet.net/getting-started/overview) at  that guides you through creating a project.
-    * You will need to put a Credit Card or PayPal on file, but use Promo Code ***BAREMETAL50*** for $50 in free credits
-    * This four node stack will cost around $4.00 per hour.
+    * You will need to put a Credit Card or PayPal on file, but use Promo Code ***PMKFT*** for $100 in free credits
+    * This deployment will cost around $0.50 per hour.
 4. [Upload an SSH key](https://www.packet.com/developers/docs/servers/key-features/ssh-keys/) to your Packet account.
 5. Generate and Record a [Packet API Key](https://www.packet.com/developers/docs/API/) for future use
 6. Locate and Record your [Packet Organization ID](https://app.packet.net/) for future use
     * Located under the **Settings** section of the **Top Right Drop Down Menu**
 
-### Sign up for the Platform9 Managed Kubernetes Free Tier
+### Sign up for the Platform9 Managed Kubernetes (PMK) Free Tier
 
-1. Sign up for a [Platform9 Free Account](https://platform9.com/signup/)
+1. Sign up for a [Platform9 PMK Free Account](https://platform9.com/signup/)
 2. Verify your e-mail address and login
 3. Record the Following:
 ![Platform9 Variables](docs/images/pf9_variables.png)
@@ -76,11 +76,11 @@ platform9_password="$tr0ngP@$$w0rd!"
 EOF
 ```
 
-There's a whole slew of other variables to check out in the `variables.tf` file. These are set to fairly sane defaults. But if you'd like to use a different server type, change the number of servers, or change the location of these servers, you can override these settings just by adding those `key=value` pairs to the file above.
+There's a whole slew of other variables to check out in the `variables.tf` file. These are set to fairly sane defaults. But if you'd like to use a different packet server type, change the number or location of the packet servers, or change the Platform9 PMK cluster configuration, you can override these settings just by adding those `key=value` pairs to the file above. As an example the video above we show a multi-master deployment; you can change the variables.tf file if you want this deployment. 
 
 ### Deploy the PMK Cluster on Packet
 
-All there is left to do now is to deploy the cluster:
+All there is left to do now is to deploy the cluster. Using the default configuration in `variables.tf`, this will create a **single node cluster using a packet [c3.small.x86](https://www.packet.com/cloud/servers/c3-small/) node that's configured with Ubuntu 18.04 Operating System**. 
 
 ```bash
 terraform apply --auto-approve
@@ -120,7 +120,7 @@ This should end with output similar to this:
 Destroy complete! Resources: 17 destroyed.
 ```
 
-**NOTE:** The one thing that I haven't written yet is the cleanup of the Nodes in Platform9. They will show up under the ***Nodes*** section as disconnected until you delete them manually.
+**NOTE:** This will not cleanup the cluster nodes in Platform9 PMK. They will show up under the ***Nodes*** section in the PMK UI (Infrastructure -> Nodes) as disconnected until you delete them manually.
 
 ## Troubleshooting or Help
 
@@ -129,5 +129,6 @@ If you need help with Platform9 you can join their [Community Slack](https://sla
 If you need help with Packet you can join their [Community Slack](https://slack.packet.com/)!
 
 ### Known issues
+You will get an x509 certificate error due to an invalid certificates. This is because Platform9 normally used DNS names rather than an IP address for the Kubernetes API Endpoint. To work around this you'll need to run kubectl as follows: `kubectl --insecure-skip-tls-verify` this will ignore the certificate error. Platform9 is working on adding the Elastic IP to the certificate to avoid this error in the future.
 
 Since Platform9 doesn't have a Terraform Provider to Create and Destroy clusters, I had to write this as an [External Data Source](https://registry.terraform.io/providers/hashicorp/external/latest/docs/data-sources/data_source). I have written the logic to delete the cluster, but haven't written the logic to delete all of the nodes.

@@ -14,12 +14,13 @@ data "external" "create_cluster" {
     region       = var.platform9_region
     cluster_name = var.cluster_name
     k8s_api_fqdn = packet_reserved_ip_block.cluster_ip.address
+    allow_workloads_on_master = var.allow_workloads_on_master
   }
 }
 
 resource "null_resource" "delete_cluster" {
   provisioner "local-exec" {
-    when    = "destroy"
+    when    = destroy
     command = "printf '{\"du_fqdn\": \"${var.platform9_fqdn}\", \"user\": \"${var.platform9_user}\", \"pw\": \"${var.platform9_password}\", \"tenant\": \"${var.platform9_tenant}\", \"region\": \"${var.platform9_region}\",  \"cluster_uuid\": \"${lookup(data.external.create_cluster.result, "cluster_id")}\"}' |  python3 ${path.module}/scripts/delete_cluster.py"
     environment = {
       du_fqdn      = var.platform9_fqdn

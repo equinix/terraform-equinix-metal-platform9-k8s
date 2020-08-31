@@ -44,7 +44,7 @@ variable "master_count" {
 }
 
 variable "worker_count" {
-  default = 1
+  default = 0
 }
 
 ###############################
@@ -86,5 +86,9 @@ variable "http_proxy" {
 
 variable "is_spot_instance" {
   default = false
+}
+
+variable "allow_workloads_on_master" {
+  default = true
 }
 
