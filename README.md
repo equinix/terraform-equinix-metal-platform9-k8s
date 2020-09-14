@@ -38,6 +38,8 @@ This repo has [Terraform](http://terraform.io) plans to deploy a single-master K
 
 ### Install Terraform
 
+**Use Terraform < 0.13 (less than) due to new restrictions on destroy-time provisioners in 0.13**
+
 [Terraform](http://terraform.io) is just a single binary.  Visit their [download page](https://www.terraform.io/downloads.html), choose your operating system, make the binary executable, and move it into your path.
 
 Here is an example for **macOS**:
@@ -55,7 +57,7 @@ To download this project and get in the directory, run the following commands:
 
 ```bash
 git clone https://github.com/packet-labs/platform9-k8s.git
-cd pmkft-on-packet
+cd platform9-k8s
 ```
 
 ### Initialize Terraform
