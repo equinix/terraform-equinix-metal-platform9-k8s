@@ -9,3 +9,9 @@ override.tf.json
 terraform.tfvars
 **/__pycache__/*
 **/.pf9_cluster.json
+
+# Pycharm IDE
+.idea
+
+# vscode
+.vscode
