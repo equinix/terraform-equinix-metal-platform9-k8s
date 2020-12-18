@@ -1,18 +1,18 @@
 ###############################
-# Packet Variables
+# Equinix Metal Variables
 ###############################
-variable "packet_api_key" {
+variable "metal_api_key" {
 }
 
 variable "cluster_name" {
-  default = "platform9-on-packet"
+  default = "platform9-on-equinix-metal"
 }
 
 variable "project_name" {
-  default = "platform9-on-packet"
+  default = "platform9-on-equinix-metal"
 }
 
-variable "packet_org_id" {
+variable "metal_org_id" {
 }
 
 variable "bgp_asn" {

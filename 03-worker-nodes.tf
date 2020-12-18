@@ -15,9 +15,9 @@ data "template_file" "worker_bootstrap" {
   }
 }
 
-resource "packet_device" "k8s_workers" {
+resource "metal_device" "k8s_workers" {
   depends_on = [
-    packet_ssh_key.ssh_pub_key
+    metal_ssh_key.ssh_pub_key
   ]
   count            = var.worker_count
   hostname         = format("%s-worker%02d", var.cluster_name, count.index + 1)
@@ -25,13 +25,13 @@ resource "packet_device" "k8s_workers" {
   facilities       = [var.facility]
   operating_system = var.operating_system
   billing_cycle    = var.billing_cycle
-  project_id       = packet_project.new_project.id
+  project_id       = metal_project.new_project.id
   user_data        = data.template_file.worker_bootstrap.rendered
 }
 
-resource "packet_bgp_session" "worker_bgp_session" {
+resource "metal_bgp_session" "worker_bgp_session" {
   count          = var.worker_count
-  device_id      = element(packet_device.k8s_workers.*.id, count.index)
+  device_id      = element(metal_device.k8s_workers.*.id, count.index)
   address_family = "ipv4"
 }
 

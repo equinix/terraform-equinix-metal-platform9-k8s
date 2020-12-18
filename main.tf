@@ -1,5 +1,5 @@
-provider "packet" {
-  auth_token = var.packet_api_key
+provider "metal" {
+  auth_token = var.metal_api_key
 }
 
 resource "random_string" "bgp_password" {
@@ -13,9 +13,9 @@ resource "random_string" "bgp_password" {
   special     = false
 }
 
-resource "packet_project" "new_project" {
+resource "metal_project" "new_project" {
   name            = var.project_name
-  organization_id = var.packet_org_id
+  organization_id = var.metal_org_id
   bgp_config {
     deployment_type = "local"
     md5             = random_string.bgp_password.result
@@ -28,7 +28,7 @@ resource "tls_private_key" "ssh_key_pair" {
   rsa_bits  = 4096
 }
 
-resource "packet_ssh_key" "ssh_pub_key" {
+resource "metal_ssh_key" "ssh_pub_key" {
   name       = var.project_name
   public_key = chomp(tls_private_key.ssh_key_pair.public_key_openssh)
 }
