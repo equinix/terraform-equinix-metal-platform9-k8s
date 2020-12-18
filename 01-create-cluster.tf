@@ -21,12 +21,12 @@ data "external" "create_cluster" {
 resource "null_resource" "delete_cluster" {
 
   triggers = {
-    cluster_uuid = lookup(data.external.create_cluster.result, "cluster_id")
-    platform9_fqdn = var.platform9_fqdn
-    platform9_user = var.platform9_user
+    cluster_uuid       = lookup(data.external.create_cluster.result, "cluster_id")
+    platform9_fqdn     = var.platform9_fqdn
+    platform9_user     = var.platform9_user
     platform9_password = var.platform9_password
-    platform9_tenant = var.platform9_tenant
-    platform9_region = var.platform9_region
+    platform9_tenant   = var.platform9_tenant
+    platform9_region   = var.platform9_region
   }
 
   provisioner "local-exec" {
