@@ -15,9 +15,9 @@ data "template_file" "master_bootstrap" {
   }
 }
 
-resource "packet_device" "k8s_masters" {
+resource "metal_device" "k8s_masters" {
   depends_on = [
-    packet_ssh_key.ssh_pub_key
+    metal_ssh_key.ssh_pub_key
   ]
   count            = var.master_count
   hostname         = format("%s-master%02d", var.cluster_name, count.index + 1)
@@ -25,13 +25,13 @@ resource "packet_device" "k8s_masters" {
   facilities       = [var.facility]
   operating_system = var.operating_system
   billing_cycle    = var.billing_cycle
-  project_id       = packet_project.new_project.id
+  project_id       = metal_project.new_project.id
   user_data        = data.template_file.master_bootstrap.rendered
 }
 
-resource "packet_bgp_session" "master_bgp_session" {
+resource "metal_bgp_session" "master_bgp_session" {
   count          = var.master_count
-  device_id      = element(packet_device.k8s_masters.*.id, count.index)
+  device_id      = element(metal_device.k8s_masters.*.id, count.index)
   address_family = "ipv4"
 }
 
