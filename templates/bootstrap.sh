@@ -9,7 +9,7 @@ sed -i "s/127.0.0.1\tlocalhost\t$myhostname/127.0.0.1\t$myhostname\tlocalhost/g"
 hostnamectl set-hostname $myhostname
 
 mkdir /etc/pf9
-host_id=`curl https://metadata.packet.net/2009-04-04/meta-data/instance-id`
+host_id=`curl https://metadata.platformequinix.com/2009-04-04/meta-data/instance-id`
 echo "[hostagent]" > /etc/pf9/host_id.conf 
 echo "host_id = $host_id" >> /etc/pf9/host_id.conf 
 sleep 60
