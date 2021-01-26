@@ -23,14 +23,14 @@ EOF
 ifup lo:0
 
 # Gather BGP variables
-localAsn=`curl -s https://metadata.packet.net/metadata | jq -r .bgp_neighbors[0].customer_as`
-bgpPassEnabled=`curl -s https://metadata.packet.net/metadata | jq -r .bgp_neighbors[0].md5_enabled`
-bgpPass=`curl -s https://metadata.packet.net/metadata | jq -r .bgp_neighbors[0].md5_password`
-multihop=`curl -s https://metadata.packet.net/metadata | jq -r .bgp_neighbors[0].multihop`
-peer1=`curl -s https://metadata.packet.net/metadata | jq -r .bgp_neighbors[0].peer_ips[0]`
-peer2=`curl -s https://metadata.packet.net/metadata | jq -r .bgp_neighbors[0].peer_ips[1]`
-peerAs=`curl -s https://metadata.packet.net/metadata | jq -r .bgp_neighbors[0].peer_as`
-customerIp=`curl -s https://metadata.packet.net/metadata | jq -r .bgp_neighbors[0].customer_ip`
+localAsn=`curl -s https://metadata.platformequinix.com/metadata | jq -r .bgp_neighbors[0].customer_as`
+bgpPassEnabled=`curl -s https://metadata.platformequinix.com/metadata | jq -r .bgp_neighbors[0].md5_enabled`
+bgpPass=`curl -s https://metadata.platformequinix.com/metadata | jq -r .bgp_neighbors[0].md5_password`
+multihop=`curl -s https://metadata.platformequinix.com/metadata | jq -r .bgp_neighbors[0].multihop`
+peer1=`curl -s https://metadata.platformequinix.com/metadata | jq -r .bgp_neighbors[0].peer_ips[0]`
+peer2=`curl -s https://metadata.platformequinix.com/metadata | jq -r .bgp_neighbors[0].peer_ips[1]`
+peerAs=`curl -s https://metadata.platformequinix.com/metadata | jq -r .bgp_neighbors[0].peer_as`
+customerIp=`curl -s https://metadata.platformequinix.com/metadata | jq -r .bgp_neighbors[0].customer_ip`
 
 # Configure Bird
 cat <<-EOF > /etc/bird/bird.conf
