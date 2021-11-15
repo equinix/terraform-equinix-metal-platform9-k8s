@@ -1,5 +1,5 @@
 data "template_file" "worker_bootstrap" {
-  template = "${file("templates/bootstrap.sh")}"
+  template = file("templates/bootstrap.sh")
   vars = {
     is_master                         = false
     du_fqdn                           = var.platform9_fqdn
