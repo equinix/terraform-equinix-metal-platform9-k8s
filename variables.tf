@@ -1,38 +1,49 @@
 ###############################
 # Equinix Metal Variables
 ###############################
+
+
 variable "metal_api_key" {
+  description = "Equinix Metal API Key"
 }
 
 variable "cluster_name" {
-  default = "platform9-on-equinix-metal"
+  description = "Platform 9 Cluster name"
+  default     = "platform9-on-equinix-metal"
 }
 
 variable "project_name" {
-  default = "platform9-on-equinix-metal"
+  description = "Equinix Metal Project name"
+  default     = "platform9-on-equinix-metal"
 }
 
 variable "metal_org_id" {
+  description = "Equinix Metal Organization ID (found on the General tab of the Organizations Settings page)"
 }
 
 variable "bgp_asn" {
-  default = 65000
+  description = "Equinix Metal BGP ASN"
+  default     = 65000
 }
 
 variable "master_size" {
-  default = "c3.small.x86"
+  description = "Equinix Metal device plan for the control plane nodes"
+  default     = "c3.small.x86"
 }
 
 variable "worker_size" {
-  default = "c3.small.x86"
+  description = "Equinix Metal device plan for the control worker nodes"
+  default     = "c3.small.x86"
 }
 
 variable "facility" {
-  default = "sv15"
+  description = "Equinix Metal facility for all device nodes"
+  default     = "sv15"
 }
 
 variable "operating_system" {
-  default = "ubuntu_18_04"
+  description = "Operating System to be deployed on Equinix Metal device nodes"
+  default     = "ubuntu_18_04"
 }
 
 variable "billing_cycle" {
@@ -40,11 +51,13 @@ variable "billing_cycle" {
 }
 
 variable "master_count" {
-  default = 1
+  description = "Control plan size (3 for HA, 1 minimum)"
+  default     = 1
 }
 
 variable "worker_count" {
-  default = 0
+  description = "Worker node pool size (0 minimum, the control plane can act as workers with allow_workloads_on_master enabled)"
+  default     = 0
 }
 
 ###############################
@@ -52,12 +65,15 @@ variable "worker_count" {
 ###############################
 
 variable "platform9_fqdn" {
+  description = "Platform9 FQDN (example: pmkft-1234567890-09876.platform9.io)"
 }
 
 variable "platform9_user" {
+  description = "Platform9 account email"
 }
 
 variable "platform9_password" {
+  description = "Platform9 account password"
 }
 
 variable "platform9_tenant" {
@@ -89,6 +105,7 @@ variable "is_spot_instance" {
 }
 
 variable "allow_workloads_on_master" {
-  default = true
+  description = "Wether or not the control plane nodes should run workloads"
+  default     = true
 }
 
