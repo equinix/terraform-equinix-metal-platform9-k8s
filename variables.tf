@@ -3,7 +3,7 @@
 ###############################
 
 
-variable "metal_api_key" {
+variable "equinix_metal_api_key" {
   description = "Equinix Metal API Key"
 }
 
@@ -17,7 +17,7 @@ variable "project_name" {
   default     = "platform9-on-equinix-metal"
 }
 
-variable "metal_org_id" {
+variable "equinix_metal_org_id" {
   description = "Equinix Metal Organization ID (found on the General tab of the Organizations Settings page)"
 }
 
@@ -34,11 +34,6 @@ variable "master_size" {
 variable "worker_size" {
   description = "Equinix Metal device plan for the control worker nodes"
   default     = "c3.small.x86"
-}
-
-variable "facility" {
-  description = "Equinix Metal facility for all device nodes"
-  default     = "sv15"
 }
 
 variable "operating_system" {

@@ -9,6 +9,7 @@ override.tf.json
 terraform.tfvars
 **/__pycache__/*
 **/.pf9_cluster.json
+*.terraform.lock.hcl
 
 # Pycharm IDE
 .idea

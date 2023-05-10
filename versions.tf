@@ -1,8 +1,13 @@
 terraform {
   required_providers {
-    metal = {
-      source  = "equinix/metal"
-      version = "<= 4.0.0"
+    equinix = {
+      source  = "equinix/equinix"
+      version = "~> 1.14"
     }
+  }
+  required_version = ">= 0.13"
+
+  provider_meta "equinix" {
+    module_name = "equinix-metal-platform9-k8s"
   }
 }

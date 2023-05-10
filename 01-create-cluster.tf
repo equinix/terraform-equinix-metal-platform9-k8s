@@ -1,6 +1,5 @@
-resource "metal_reserved_ip_block" "cluster_ip" {
-  project_id = metal_project.new_project.id
-  facility   = var.facility
+resource "equinix_metal_reserved_ip_block" "cluster_ip" {
+  project_id = equinix_metal_project.new_project.id
   quantity   = 1
 }
 
@@ -13,7 +12,7 @@ data "external" "create_cluster" {
     tenant                    = var.platform9_tenant
     region                    = var.platform9_region
     cluster_name              = var.cluster_name
-    k8s_api_fqdn              = metal_reserved_ip_block.cluster_ip.address
+    k8s_api_fqdn              = equinix_metal_reserved_ip_block.cluster_ip.address
     allow_workloads_on_master = var.allow_workloads_on_master
   }
 }

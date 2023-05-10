@@ -15,23 +15,22 @@ data "template_file" "worker_bootstrap" {
   }
 }
 
-resource "metal_device" "k8s_workers" {
+resource "equinix_metal_device" "k8s_workers" {
   depends_on = [
-    metal_ssh_key.ssh_pub_key
+    equinix_metal_ssh_key.ssh_pub_key
   ]
   count            = var.worker_count
   hostname         = format("%s-worker%02d", var.cluster_name, count.index + 1)
   plan             = var.worker_size
-  facilities       = [var.facility]
   operating_system = var.operating_system
   billing_cycle    = var.billing_cycle
-  project_id       = metal_project.new_project.id
+  project_id       = equinix_metal_project.new_project.id
   user_data        = data.template_file.worker_bootstrap.rendered
 }
 
-resource "metal_bgp_session" "worker_bgp_session" {
+resource "equinix_metal_bgp_session" "worker_bgp_session" {
   count          = var.worker_count
-  device_id      = element(metal_device.k8s_workers.*.id, count.index)
+  device_id      = element(equinix_metal_device.k8s_workers.*.id, count.index)
   address_family = "ipv4"
 }
 
