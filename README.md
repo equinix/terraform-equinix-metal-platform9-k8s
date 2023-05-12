@@ -60,8 +60,8 @@ You will need to collect and set a few variables in order to authenticate to bot
 
 ```bash
 cat <<EOF >terraform.tfvars
-metal_org_id="ekj8e156-e2fb-4e5b-b90e-090a067437ee"
-metal_api_key="OG8MyWgrcg3ngf7rzAa8UTrh5sG6A3DE"
+equinix_metal_org_id="ekj8e156-e2fb-4e5b-b90e-090a067437ee"
+equinix_metal_api_key="OG8MyWgrcg3ngf7rzAa8UTrh5sG6A3DE"
 platform9_fqdn="pmkft-1234567890-09876.platform9.io"
 platform9_user="user@example.com"
 platform9_password="$tr0ngP@$$w0rd!"
