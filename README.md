@@ -118,7 +118,7 @@ Destroy complete! Resources: 17 destroyed.
 
 If you need help with Platform9 you can join their [Community Slack](https://slack.platform9.io)!
 
-If you need help with Equinix Metal you can join their [Community Slack](https://slack.equinixmetal.com/)!
+If you need help with Equinix Metal you can join the [Equinix Community](https://community.equinix.com/)!
 
 ### Known issues
 You will get an x509 certificate error due to an invalid certificates. This is because Platform9 normally used DNS names rather than an IP address for the Kubernetes API Endpoint. To work around this you'll need to run kubectl as follows: `kubectl --insecure-skip-tls-verify` this will ignore the certificate error. Platform9 is working on adding the Elastic IP to the certificate to avoid this error in the future.
