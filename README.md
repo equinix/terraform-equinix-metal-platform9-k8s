@@ -1,5 +1,8 @@
 # Platform9 Managed Kubernetes on Equinix Metal
 
+> [!WARNING]
+> With the upcoming EoL of Equinix Metal on June 30, 2026, this repo is being archived on February 28, 2026.
+
 [![Platform9 Variables](docs/images/pmkft_thumbnail.png)](https://drive.google.com/file/d/1qGSSWqIxOLRodfkobgHz0e2su8f1ikoY/view)
 
 This repo has [Terraform](http://terraform.io) plans to deploy a single-master Kubernetes Cluster on Baremetal utilizing [Platform9 Managed Kubernetes](https://platform9.com/managed-kubernetes/) and [Equinix Metal (an Equinix Company)](https://metal.equinix.com). This deployment usually takes about 15 minutes to complete, and you'll have a Managed Kubernetes cluster ready to deploy workloads. Checkout the three and a half minute video above of this deployment!
